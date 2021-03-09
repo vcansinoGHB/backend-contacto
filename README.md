@@ -16,6 +16,9 @@ El proyecto tiene las carpetas:
 Controller.-
 Es donde se realizan las consultas a la base usando el ORM.
 
+Middleware.-
+Reside el archivo que comprueba el JWT en las peticiones.
+
 Database.- 
 Es donde se guardan los modelos.
 
