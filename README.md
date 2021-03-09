@@ -7,15 +7,17 @@ npm install
 Para ejecutarlo
 npm run dev
 
-El proyecto se inicia con el archivo app.js en el puerto http://localhost:4000
+El proyecto se inicia con el archivo app.js en el puerto http://localhost:4000.
 
-el cors esta configurado al puerto "http://localhost:3000",donde se ejecuta el front end
+el cors esta configurado al puerto http://localhost:3000, donde se ejecuta el front end.
 
 El proyecto tiene las carpetas:
 
-Controller.
-Es donde se realizan las consultas a la base usando el ORM
+Controller.-
+Es donde se realizan las consultas a la base usando el ORM.
 
-Database. Es donde se guardan los modelos
+Database.- 
+Es donde se guardan los modelos.
 
-Rotes. configuracion de las rutas
+Rotes.- 
+Para la configuracion de las rutas.
