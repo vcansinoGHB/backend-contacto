@@ -1,15 +1,33 @@
 const Contacto  = require('../database/models/Contacto');
+const Sequelize = require('sequelize');
+const Op        = Sequelize.Op;
 
 export const obtieneContactos = async (req,res) => {
 
-   const lista = await Contacto.findAll({order: [ ['id', 'ASC'] ]});
-   
-
-   res.json(lista);
+   const lista = await Contacto.findAll({ 
+                                           order: [ ['id', 'ASC'] ] } 
+                                        );
+    res.json(lista);
     
 }
 
+export const buscaContactos = async (req,res) => {
+
+   let busca = req.body.nombre;
+   
+   busca = req.params.nombre == ''? 'a' :req.body.nombre;
+   
+  const lista = await Contacto.findAll({  
+   where: {
+      asset_name: Sequelize.where(Sequelize.fn('LOWER', Sequelize.col('nombre_completo')), 'LIKE', '%' + busca + '%')
+  }
+                                        }  );
+   res.json(lista);
+   
+}
+
 export const crearContacto = async (req,res) => {
+
    
    const item = await Contacto.create( 
                 {
@@ -20,7 +38,12 @@ export const crearContacto = async (req,res) => {
                   foto: req.body.foto,
                   fecha_captura: new Date()
                });
-   res.json(item);
+
+               res.json(item);
+
+ 
+
+ 
 
 }
 

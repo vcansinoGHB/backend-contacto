@@ -6,7 +6,9 @@ const router = Router();
 
 router.post('/',validaToken, contactoControlador.crearContacto );
 
-router.get('/', validaToken, contactoControlador.obtieneContactos );
+router.post('/busca',validaToken, contactoControlador.buscaContactos);
+
+router.get('/',validaToken, contactoControlador.obtieneContactos );
 
 router.get('/:id',validaToken, contactoControlador.obtieneContactoPorId );
 
